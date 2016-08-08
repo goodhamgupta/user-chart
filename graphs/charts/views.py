@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework import viewsets
 import requests
+from models import CountryModel
 
 app_id = "5f68be87"
 app_key = "a5699ef989e61a480601bc60f022f559"
@@ -14,5 +15,6 @@ def get_data(request):
 def chart(request):
     print "Rendering"
     #return Response({"extra":"extra"},template_name="/static/charts/test.html")
-    return render(request,"charts/test.html")
+    country_objs = CountryModel.objects.get()
+    return render(request,"charts/test.html",{"data":country_objs})
 
