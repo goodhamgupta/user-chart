@@ -5,12 +5,8 @@ from django.db import models
 # Create your models here.
 
 
-class ContinentModel(models.Model):
-    continent = models.CharField(null=False,max_length=200)
-
 class CountryModel(models.Model):
     country = models.CharField(null=False,max_length=200)
-    country_id = models.ForeignKey(ContinentModel)
-    population = models.CharField(null=False,max_length=1000)
-    density = models.CharField(null=False,max_length=1000)
-    literacy = models.CharField(null=False,max_length=1000)
+    population = models.CharField(max_length=1000)
+    density = models.CharField(max_length=1000)
+    literacy = models.CharField(max_length=1000)

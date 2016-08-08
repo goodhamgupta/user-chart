@@ -15,6 +15,6 @@ def get_data(request):
 def chart(request):
     print "Rendering"
     #return Response({"extra":"extra"},template_name="/static/charts/test.html")
-    country_objs = CountryModel.objects.get()
-    return render(request,"charts/test.html",{"data":country_objs})
+    country_objs = CountryModel.objects.all()
+    return render(request,"charts/test.html",{ "data" : country_objs})
 

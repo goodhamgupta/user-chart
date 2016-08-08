@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 </head>
 <body>
 
@@ -26,10 +28,32 @@
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
   {% for item in data %}
-    <li>{{item}}</li>
+    <li>{{item.country}}</li>
   {% endfor %}
   </ul>
 </div>
+<head>
+
+  <div id="myDiv" style="width: 480px; height: 400px;"></div>
+  <script>
+  var country = [];
+  var population = [];
+  var density = []
+  {% for item in data %}
+    country.push("{{ item.country }}");
+    population.push("{{item.population }}");
+  {% endfor %}
+      var trace1 = {
+      x: country,
+      y: population,
+      name: "Countries population in millions",
+      type: 'bar'
+    };
+
+    var data = [trace1];
+    Plotly.newPlot('myDiv', data);
+  </script>
+</body>
 
 </body>
 </html>
