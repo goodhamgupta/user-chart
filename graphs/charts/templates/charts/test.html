@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" ></script>
+	<script>
+
+    var PieChart = [
+            {
+                value: 40,
+                color:"#fcc79e"
+            },
+            {
+                value : 30,
+                color : "#beefd2"
+            },
+            {
+                value : 90,
+                color : "#ffddfb"
+            }
+
+        ];
+
+var myPieChart = new Chart(document.getElementById("myChart").getContext("2d")).Pie(PieChart);
+
+     </script>
+</head>
+<body>
+	<canvas id="myChart" width="400" height="400"></canvas>
+</body>
+</html>
