@@ -23,20 +23,20 @@ $(document).ready(function() {
                     fields.push(data[1][i]);
                   }
                   var graph_type;
-                  switch (gtype){
-                    case 1:
-                        console.log("SHJHFAJASFSA");
-                        graph_type="bar";
-                        break;
-                    case 2:
-                        graph_type="scatter";
-                        break;
-                    case 3:
-                        graph_type="pie";
-                        break;
+                  if (gtype == 1)
+                  {
+                    graph_type="bar";
+                  }
+                  else if (gtype == 2)
+                  {
+                    graph_type="scatter";
+                  }
+                  else
+                  {
+                    graph_type="pie";
                   }
                   console.log(graph_type);
-                if (gtype == "pie"){
+                if (graph_type == "pie"){
                     var trace1 = {
                       labels: country,
                       values: fields,

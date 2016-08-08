@@ -1,7 +1,7 @@
 
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Dynamic User Graphs</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -10,10 +10,6 @@
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="/static/js/jquery.blockUI.js"></script>
   <script src="/static/js/graph.js"></script>
-
-  <script>
-
-  </script>
 </head>
 
 <body>
@@ -57,17 +53,17 @@
       <div class="panel panel-default">
       <div class="panel-body">
         <select id="data">
-        <option value="1">population</option>
-        <option value="2">life_expectancy</option>
-        <option value="3">area</option>
-        <option value="4">elevation</option>
-        <option value="5">density</option>
+        <option value="1">Population</option>
+        <option value="2">Life Expectancy</option>
+        <option value="3">Surface Area</option>
+        <option value="4">Elevation</option>
+        <option value="5">Density</option>
       </select>
 
         <select id="graphtype">
-        <option value="1">bar</option>
-        <option value="2">scatter</option>
-        <option value="3">pie</option>
+        <option value="1">Bar</option>
+        <option value="2">Scatter</option>
+        <option value="3">Pie</option>
       </select>
 
       </div>
