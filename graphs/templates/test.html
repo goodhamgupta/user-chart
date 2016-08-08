@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <title>Bootstrap Example</title>
@@ -8,7 +8,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="/static/js/jquery.blockUI.js"></script>
+  <script src="/static/js/graph.js"></script>
 
+  <script>
+
+  </script>
 </head>
 
 <body>
@@ -65,46 +70,15 @@
         <option value="3">pie</option>
       </select>
 
-
       </div>
     </div>
+      <button class="btn btn-success btn-lg" type="button" id="showbutton">Display</button>
    </div>
     <div class="row">
       <div id="myDiv"></div>
     </div>
   </div>
-  <script>
-  var country = [];
-  var population = [];
-  var life_expectancy = []
-  var area = [];
-  var elevation = []
-  var density = [];
 
-  {% for item in data %}
-    country.push("{{ item.country }}");
-    population.push("{{item.population }}");
-    life_expectancy.push("{{item.life_expectancy }}");
-    area.push("{{item.area}}");
-    elevation.push("{{item.elevation}}");
-    density.push("{{item.density}}");
-  {% endfor %}
-      var trace1 = {
-      labels: country,
-      values: density,
-      name: "Countries population in millions",
-      type: 'pie'
-    };
-
-    var layout = {
-      xaxis: {title: 'Countries'},
-      yaxis: {title: 'Population in Millions', type: 'log'},
-      margin: {t: 20},
-    };
-
-    var data = [trace1];
-    Plotly.newPlot('myDiv', data);
-  </script>
 </body>
 
 </html>

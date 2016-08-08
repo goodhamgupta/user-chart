@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+from unipath import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -125,18 +126,40 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+ATTENDANT_DIR = Path(__file__).ancestor(1)
+PROJECT_DIR = Path(__file__).ancestor(2)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
-# Extra places for collectstatic to find static files.
-# STATICFILES_DIRS = (
-#     os.path.join(PROJECT_ROOT, 'static'),
-# )
+abc = os.path.dirname(os.path.dirname(__file__))
 
+STATIC_PATH = os.path.join(abc,'static')
+
+STATICFILES_DIRS = (STATIC_PATH,)
+# STATICFILES_DIRS = (
+#     PROJECT_DIR.child('static'),
+# )
+# STATIC_ROOT = os.path.join(PROJECT_DIR  , 'static')
 TEMPLATE_DIRS = (
-    PROJECT_ROOT + '/templates/',
+    os.path.join(PROJECT_ROOT , 'templates'),
 )
+
+TEMPLATES = [
+{
+   'BACKEND': 'django.template.backends.django.DjangoTemplates',
+   'DIRS': TEMPLATE_DIRS,
+   'APP_DIRS': True,
+   'OPTIONS': {
+       'context_processors': [
+           'django.template.context_processors.debug',
+           'django.template.context_processors.request',
+           'django.contrib.auth.context_processors.auth',
+           'django.contrib.messages.context_processors.messages',
+       ],
+   },
+},
+]
