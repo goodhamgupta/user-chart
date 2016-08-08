@@ -50,6 +50,7 @@ $(document).ready(function() {
                   var trace1 = {
                       x: country,
                       y: fields,
+                      mode : "markers",
                       type: graph_type
                     };
 

@@ -14,9 +14,8 @@ from models import CountryModel
 #     print r.content
 
 def chart(request):
-    #return Response({"extra":"extra"},template_name="/static/charts/test.html")
-    country_objs = CountryModel.objects.all()
-    return render(request,"test.html",{ "data" : country_objs})
+    #return Response({"extra":"extra"},template_name="/static/charts/base.html")
+    return render(request,"base.html")
 
 
 @api_view(['GET'])
