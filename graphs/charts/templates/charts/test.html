@@ -10,6 +10,7 @@
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 </head>
+
 <body>
 
 <nav class="navbar navbar-inverse">
@@ -23,52 +24,76 @@
   </div>
 </nav>
 
-<div class="btn-group">
-  <!--<div class="dropdown">-->
-    <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Country
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-    {% for item in data %}
-      <li>{{item.country}}</li>
-    {% endfor %}
-    </ul>
+  <!--<div class="btn-group">-->
+    <!--<div class="dropdown">-->
+      <!--<button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Data-->
+      <!--<span class="caret"></span></button>-->
+      <!--<ul class="dropdown-menu">-->
+        <!--<li>population</li>-->
+        <!--<li>life_expectancy</li>-->
+        <!--<li>area</li>-->
+        <!--<li>elevation</li>-->
+        <!--<li>density</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="dropdown">-->
+      <!--<button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown" >Type-->
+      <!--<span class="caret"></span></button>-->
+      <!--<ul class="dropdown-menu">-->
+        <!--<li>bar</li>-->
+        <!--<li>scatter</li>-->
+        <!--<li>pie</li>-->
+      <!--</ul>-->
+    <!--</div>-->
   <!--</div>-->
-  <!--<div class="dropdown">-->
-    <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Data
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-    {% for item in data %}
-      <li>{{item.country}}</li>
-    {% endfor %}
-    </ul>
-  <!--</div>-->
-  <!--<div class="dropdown">-->
-    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Type
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-    {% for item in data %}
-      <li>{{item.country}}</li>
-    {% endfor %}
-    </ul>
-  <!--</div>-->
-</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <select id="data">
+        <option value="1">population</option>
+        <option value="2">life_expectancy</option>
+        <option value="3">area</option>
+        <option value="4">elevation</option>
+        <option value="5">density</option>
+      </select>
+
+        <select id="graphtype">
+        <option value="1">bar</option>
+        <option value="2">scatter</option>
+        <option value="3">pie</option>
+      </select>
 
 
-  <div id="myDiv"></div>
+      </div>
+    </div>
+   </div>
+    <div class="row">
+      <div id="myDiv"></div>
+    </div>
+  </div>
   <script>
   var country = [];
   var population = [];
-  var density = []
+  var life_expectancy = []
+  var area = [];
+  var elevation = []
+  var density = [];
+
   {% for item in data %}
     country.push("{{ item.country }}");
     population.push("{{item.population }}");
-
+    life_expectancy.push("{{item.life_expectancy }}");
+    area.push("{{item.area}}");
+    elevation.push("{{item.elevation}}");
+    density.push("{{item.density}}");
   {% endfor %}
       var trace1 = {
-      x: country,
-      y: population,
+      labels: country,
+      values: density,
       name: "Countries population in millions",
-      type: 'scatter'
+      type: 'pie'
     };
 
     var layout = {
@@ -78,7 +103,7 @@
     };
 
     var data = [trace1];
-    Plotly.newPlot('myDiv', data, layout);
+    Plotly.newPlot('myDiv', data);
   </script>
 </body>
 
