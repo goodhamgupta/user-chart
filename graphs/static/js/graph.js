@@ -1,13 +1,21 @@
 $(document).ready(function() {
 
     $('#showbutton').click(function(){
+        var data_type = $("#data_type").val();
+        if (data_type == 1){
+            var action_url = "/charts/continent_data/";
+        }
+        else
+        {
+            var action_url = "/charts/country_data/";
+        }
         var id = $("#data").val();
         var gtype = $("#graphtype").val();
         console.log(gtype);
         $.blockUI("Please wait ...")
         $.ajax(
         {
-            url: '/charts/data/'+id,
+            url: action_url+id,
             error: function () {
                 alert("Invalid Option");
                 $.unblockUI();
@@ -55,7 +63,7 @@ $(document).ready(function() {
                     };
 
                     var layout = {
-                      xaxis: {title: 'Countries'},
+                      xaxis: {title: 'Data'},
                       margin: {t: 20},
                     };
                     var data = [trace1];

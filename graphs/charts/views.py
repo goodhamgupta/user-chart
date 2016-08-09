@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework import viewsets
 import requests
-from models import CountryModel
+from models import CountryModel, ContinentModel
 from charts.vars import population,population_density,life_expectancy,elevation,surface_area
 
 # app_id = "5f68be87"
@@ -61,8 +61,7 @@ def chart(request):
 
 
 @api_view(['GET'])
-def get_data(request,data):
-    object = []
+def get_country_data(request,data):
     data = int(data)
     objects = CountryModel.objects.all()
     country_list = []
@@ -88,6 +87,40 @@ def get_data(request,data):
         elif data == 5:
             for obj in objects:
                 country_list.append(obj.country)
+                data_list.append(obj.elevation)
+        final_list = [country_list,data_list]
+    except Exception as e:
+        print "ERROR OCCURED! ",e
+
+    return Response(final_list)
+
+@api_view(['GET'])
+def get_continent_data(request,data):
+    data = int(data)
+    objects = ContinentModel.objects.all()
+    country_list = []
+    data_list = []
+    final_list = []
+    try:
+        if data == 1:
+            for obj in objects:
+                country_list.append(obj.continent)
+                data_list.append(obj.population)
+        elif data == 2:
+            for obj in objects:
+                country_list.append(obj.continent)
+                data_list.append(obj.life_expectancy)
+        elif data == 3:
+            for obj in objects:
+                country_list.append(obj.continent)
+                data_list.append(obj.area)
+        elif data == 4:
+            for obj in objects:
+                country_list.append(obj.continent)
+                data_list.append(obj.density)
+        elif data == 5:
+            for obj in objects:
+                country_list.append(obj.continent)
                 data_list.append(obj.elevation)
         final_list = [country_list,data_list]
     except Exception as e:
