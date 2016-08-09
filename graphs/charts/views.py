@@ -5,7 +5,7 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework import viewsets
 import requests
 from models import CountryModel
-from .vars import population,population_density,life_expectancy,elevation,surface_area
+from charts.vars import population,population_density,life_expectancy,elevation,surface_area
 
 # app_id = "5f68be87"
 # app_key = "a5699ef989e61a480601bc60f022f559"
