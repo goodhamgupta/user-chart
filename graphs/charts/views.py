@@ -56,8 +56,10 @@ def insert_data(request):
     return Response("Complete")
 
 def chart(request):
-    #return Response({"extra":"extra"},template_name="/static/charts/base.html")
     return render(request,"base.html")
+
+def detail(request):
+    return render(request,"detail.html")
 
 
 @api_view(['GET'])
