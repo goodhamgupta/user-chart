@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<select id="data_type">
+        <option value="1">Continent</option>
+        <option value="2">Country</option>
+        </select>
+
+        <select id="data">
+          <option value="1">Population</option>
+          <option value="2">Life Expectancy</option>
+          <option value="3">Surface Area</option>
+          <option value="4">Elevation</option>
+          <option value="5">Density</option>
+        </select>
+
+        <select id="graphtype">
+          <option value="1">Bar</option>
+          <option value="2">Scatter</option>
+          <option value="3">Pie</option>
+        </select>
+
+{% endblock %}
+
+{% block buttoncontent %}
+    </div>
+      <button class="btn btn-success btn-lg" type="button" id="showbutton">Display</button>
+    </div>
+{% endblock %}

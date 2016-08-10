@@ -56,7 +56,7 @@ def insert_data(request):
     return Response("Complete")
 
 def chart(request):
-    return render(request,"base.html")
+    return render(request,"home.html")
 
 def detail(request):
     return render(request,"detail.html")
@@ -85,11 +85,11 @@ def get_country_data(request,data):
         elif data == 4:
             for obj in objects:
                 country_list.append(obj.country)
-                data_list.append(obj.density)
+                data_list.append(obj.elevation)
         elif data == 5:
             for obj in objects:
                 country_list.append(obj.country)
-                data_list.append(obj.elevation)
+                data_list.append(obj.density)
         final_list = [country_list,data_list]
     except Exception as e:
         print "ERROR OCCURED! ",e
@@ -119,12 +119,92 @@ def get_continent_data(request,data):
         elif data == 4:
             for obj in objects:
                 country_list.append(obj.continent)
-                data_list.append(obj.density)
+                data_list.append(obj.elevation)
         elif data == 5:
             for obj in objects:
                 country_list.append(obj.continent)
-                data_list.append(obj.elevation)
+                data_list.append(obj.density)
         final_list = [country_list,data_list]
+    except Exception as e:
+        print "ERROR OCCURED! ",e
+
+    return Response(final_list)
+
+@api_view(['GET'])
+def get_country_detail(request,param1,param2):
+    param1 = int(param1)
+    param2 = int(param2)
+    objects = CountryModel.objects.all()
+    first_data_list = []
+    second_data_list = []
+    final_list = []
+    try:
+        if param1 == 1:
+            param1 = 'population'
+        elif param1 == 2:
+            param1 = 'life_expectancy'
+        elif param1 == 3:
+            param1 = 'area'
+        elif param1 == 4:
+            param1 = 'density'
+        elif param1 == 5:
+            param1 = 'elevation'
+
+        if param2 == 1:
+            param2 = 'population'
+        elif param2 == 2:
+            param2 = 'life_expectancy'
+        elif param2 == 3:
+            param2 = 'area'
+        elif param2 == 4:
+            param2 = 'elevation'
+        elif param2 == 5:
+            param2 = 'density'
+
+        for obj in objects:
+            first_data_list.append(obj[param1])
+            second_data_list.append(obj[param2])
+        final_list = [first_data_list,second_data_list]
+    except Exception as e:
+        print "ERROR OCCURED! ",e
+
+    return Response(final_list)
+
+@api_view(['GET'])
+def get_continent_detail(request,param1,param2):
+    param1 = int(param1)
+    param2 = int(param2)
+    objects = ContinentModel.objects.all()
+    first_data_list = []
+    second_data_list = []
+    final_list = []
+    try:
+        if param1 == 1:
+            param1 = 'population'
+        elif param1 == 2:
+            param1 = 'life_expectancy'
+        elif param1 == 3:
+            param1 = 'area'
+        elif param1 == 4:
+            param1 = 'elevation'
+        elif param1 == 5:
+            param1 = 'density'
+
+        if param2 == 1:
+            param2 = 'population'
+        elif param2 == 2:
+            param2 = 'life_expectancy'
+        elif param2 == 3:
+            param2 = 'area'
+        elif param2 == 4:
+            param2 = 'elevation'
+        elif param2 == 5:
+            param2 = 'density'
+
+        for obj in objects:
+            first_data_list.append(obj.param1)
+            second_data_list.append(obj.param2)
+        final_list = [first_data_list,second_data_list]
     except Exception as e:
         print "ERROR OCCURED! ",e
 
