@@ -162,9 +162,10 @@ def get_country_detail(request,param1,param2):
             param2 = 'density'
 
         for obj in objects:
-            first_data_list.append(obj[param1])
-            second_data_list.append(obj[param2])
+            first_data_list.append(getattr(obj,param1))
+            second_data_list.append(getattr(obj,param2))
         final_list = [first_data_list,second_data_list]
+        print final_list
     except Exception as e:
         print "ERROR OCCURED! ",e
 
@@ -202,9 +203,12 @@ def get_continent_detail(request,param1,param2):
             param2 = 'density'
 
         for obj in objects:
-            first_data_list.append(obj.param1)
-            second_data_list.append(obj.param2)
+            print "KERE"
+            first_data_list.append(getattr(obj,param1))
+            second_data_list.append(getattr(obj,param2))
+
         final_list = [first_data_list,second_data_list]
+        print final_list
     except Exception as e:
         print "ERROR OCCURED! ",e
 
