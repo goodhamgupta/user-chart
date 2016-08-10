@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#showbutton').click(function(){
+    $('#detailbutton').click(function(){
         var data_type = $("#data_type").val();
         if (data_type == 1){
             var action_url = "/charts/continent_detail/";
@@ -9,8 +9,8 @@ $(document).ready(function() {
         {
             var action_url = "/charts/country_detail/";
         }
-        var id = $("#data").val();
-        var id2 = $("#data2").val();
+        var id = $("#data_v1").val();
+        var id2 = $("#data_v2").val();
         var gtype = $("#graphtype").val();
         console.log(gtype);
         $.blockUI("Please wait ...")
