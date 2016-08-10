@@ -11,6 +11,8 @@ $(document).ready(function() {
         }
         var id = $("#data_v1").val();
         var id2 = $("#data_v2").val();
+        var xtick = $("#data_v1 option:selected").text()
+        var ytick = $("#data_v2 option:selected").text()
         var gtype = $("#graphtype").val();
         console.log(gtype);
         $.blockUI("Please wait ...")
@@ -64,7 +66,8 @@ $(document).ready(function() {
                     };
 
                     var layout = {
-                      xaxis: {title: 'Data'},
+                      xaxis: {title: xtick},
+                      yaxis: {title: ytick},
                       margin: {t: 20},
                     };
                     var data = [trace1];

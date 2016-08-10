@@ -10,6 +10,8 @@ $(document).ready(function() {
             var action_url = "/charts/country_data/";
         }
         var id = $("#data").val();
+        var xtick = $("#data_type option:selected").text()
+        var ytick = $("#data option:selected").text()
         var gtype = $("#graphtype").val();
         console.log(gtype);
         $.blockUI("Please wait ...")
@@ -63,7 +65,8 @@ $(document).ready(function() {
                     };
 
                     var layout = {
-                      xaxis: {title: 'Data'},
+                      xaxis: {title: xtick},
+                      yaxis: {title: ytick},
                       margin: {t: 20},
                     };
                     var data = [trace1];
