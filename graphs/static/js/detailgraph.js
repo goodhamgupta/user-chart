@@ -79,6 +79,13 @@ $(document).ready(function() {
                     $.unblockUI();
                 }
             },
+            error: function(){
+                swal({
+                title: "Error!",
+                text: "Oops! Something went wrong.",
+                type: "error",
+                confirmButtonText: "Cool" });
+            },
             type: 'GET'
         }
     );
