@@ -2,42 +2,63 @@
 
 
 {% block content %}
-        <select id="data_type">
-            <option value="1">Continent</option>
-            <option value="2">Country</option>
-        </select>
-
-        <select id="data_v1">
-          <option value="1">Population</option>
-          <option value="2">Life Expectancy</option>
-          <option value="3">Surface Area</option>
-          <option value="4">Elevation</option>
-          <option value="5">Density</option>
-        </select>
-
-        <select id="data_v2">
-          <option value="1">Population</option>
-          <option value="2">Life Expectancy</option>
-          <option value="3">Surface Area</option>
-          <option value="4">Elevation</option>
-          <option value="5">Density</option>
-        </select>
-
-        <select id="graphtype">
-          <option value="1">Bar</option>
-          <option value="2">Scatter</option>
-          <!--<option value="3">Pie</option>-->
-        </select>
-
-        <span data-toggle="popover" data-content="The second and third columns represent the x-axis
-        and y-axis of the graph respectively. Click on the button to view it!"
-          data-placement="left" data-trigger="hover" class="navbar-right glyphicon glyphicon-info-sign"
-          style="font-size:30px"> </span>
-        <script>
-        $(document).ready(function(){
-            $('[data-toggle="popover"]').popover();
-        });
-        </script>
+    <div class="table-responsive table-hover">
+            <table class="table">
+                <thead>
+                    <tr class="table-active">
+                        <th>Data Type</th>
+                        <th>X-AXIS</th>
+                        <th>Y-AXIS</th>
+                        <th>Visualization</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select id="data_type">
+                                <option value="1">Continent</option>
+                                <option value="2">Country</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="data_v1">
+                              <option value="1">Population</option>
+                              <option value="2">Life Expectancy</option>
+                              <option value="3">Surface Area</option>
+                              <option value="4">Elevation</option>
+                              <option value="5">Density</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="data_v2">
+                              <option value="1">Population</option>
+                              <option value="2">Life Expectancy</option>
+                              <option value="3">Surface Area</option>
+                              <option value="4">Elevation</option>
+                              <option value="5">Density</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="graphtype">
+                              <option value="1">Bar</option>
+                              <option value="2">Scatter</option>
+                              <option value="3">Pie</option>
+                            </select>
+                        </td>
+                        <!--<td>-->
+                        <!--<span data-toggle="popover" data-content="Select any of the given representation types and click to view it!"-->
+                              <!--data-placement="left" data-trigger="hover" class="navbar-right glyphicon glyphicon-info-sign"-->
+                              <!--style="font-size:30px"></span>-->
+                        <!--</td>-->
+                    </tr>
+                </tbody>
+            </table>
+            <!--<script>-->
+                <!--$(document).ready(function(){-->
+                    <!--$('[data-toggle="popover"]').popover();-->
+                <!--});-->
+            <!--</script>-->
+        </div>
 
 {% endblock %}
 
