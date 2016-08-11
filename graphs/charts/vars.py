@@ -1105,3 +1105,11 @@ elevation = [
 {"country" : "Zambia", "average" : "1,138m"},
 {"country" : "Zimbabwe", "average" : "961m"}
 ]
+
+continent_data = [{"continent":"Asia","population":"4157300000","life_expectancy":"70","area":"16,920,000","density":"246","elevation":"1500"},
+                  {"continent":"Africa","population":"1030400000","life_expectancy":"60","area":"11730000","density":"87","elevation":"1300"},
+                  {"continent":"North America","population":"542056000","life_expectancy":"79","area":"9460000","density":"57","elevation":"1400"},
+                  {"continent":"South America","population":"392555000","life_expectancy":"75","area":"6890000","density":"57","elevation":"1200"},
+                  {"continent":"Antartica","population":"4,490","life_expectancy":"64","area":"5300000","density":"0.00078","elevation":"300"},
+                  {"continent":"Europe","population":"738199000","life_expectancy":"78","area":"3930000","density":"188","elevation":"700"},
+                  {"continent":"Australia","population":"29127000","life_expectancy":"66","area":"3478200","density":"8.3","elevation":"300"}]

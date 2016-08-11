@@ -72,6 +72,7 @@ $(document).ready(function() {
                     var layout = {
                       xaxis: {title: xtick},
                       yaxis: {title: ytick},
+                      showlegend : true,
                       margin: {t: 20},
                     };
                     var data = [trace1];

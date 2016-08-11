@@ -50,6 +50,7 @@ $(document).ready(function() {
                     var trace1 = {
                       labels: country,
                       values: fields,
+                      showlegend : true,
                       type: graph_type
                     };
                     var data = [trace1];
@@ -67,6 +68,7 @@ $(document).ready(function() {
                     var layout = {
                       xaxis: {title: xtick},
                       yaxis: {title: ytick},
+                      showlegend : true,
                       margin: {t: 20},
                     };
                     var data = [trace1];
