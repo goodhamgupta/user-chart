@@ -2,9 +2,9 @@
 
 
 {% block content %}
-<select id="data_type">
-        <option value="1">Continent</option>
-        <option value="2">Country</option>
+        <select id="data_type">
+            <option value="1">Continent</option>
+            <option value="2">Country</option>
         </select>
 
         <select id="data">
@@ -20,6 +20,16 @@
           <option value="2">Scatter</option>
           <option value="3">Pie</option>
         </select>
+
+        <span data-toggle="popover" data-content="Select any of the given representation types and click to view it!"
+              data-placement="left" data-trigger="hover" class="navbar-right glyphicon glyphicon-info-sign"
+              style="font-size:30px"></span>
+        <script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
+        });
+        </script>
+
 
 {% endblock %}
 

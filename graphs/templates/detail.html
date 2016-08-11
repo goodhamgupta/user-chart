@@ -26,8 +26,18 @@
         <select id="graphtype">
           <option value="1">Bar</option>
           <option value="2">Scatter</option>
-          <option value="3">Pie</option>
+          <!--<option value="3">Pie</option>-->
         </select>
+
+        <span data-toggle="popover" data-content="The second and third columns represent the x-axis
+        and y-axis of the graph respectively. Click on the button to view it!"
+          data-placement="left" data-trigger="hover" class="navbar-right glyphicon glyphicon-info-sign"
+          style="font-size:30px"> </span>
+        <script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
+        });
+        </script>
 
 {% endblock %}
 
