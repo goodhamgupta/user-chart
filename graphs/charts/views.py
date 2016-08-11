@@ -5,12 +5,21 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework import viewsets
 import requests
 from models import CountryModel, ContinentModel
-from charts.vars import population,population_density,life_expectancy,elevation,surface_area
+from charts.vars import population,population_density,life_expectancy,elevation,surface_area, continent_data
 
 
 @api_view(['GET'])
 def insert_data(request):
 
+    # Inserting data into the continent model
+
+    for obj in continent_data:
+        b = ContinentModel()
+        for key, value in obj.iteritems():
+            setattr(b, key, value)
+        b.save()
+
+    # Inserting country specific data
     for obj in population:
         country = obj['country']
         population = obj['population']
