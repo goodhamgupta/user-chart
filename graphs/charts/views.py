@@ -7,11 +7,6 @@ import requests
 from models import CountryModel, ContinentModel
 from charts.vars import population,population_density,life_expectancy,elevation,surface_area
 
-# app_id = "5f68be87"
-# app_key = "a5699ef989e61a480601bc60f022f559"
-# def get_data(request):
-#     r=requests.get("http://api.undata-api.org/organizations?app_id={"+app_id+"}&app_key={"+app_key+"}")
-#     print r.content
 
 @api_view(['GET'])
 def insert_data(request):
@@ -137,6 +132,7 @@ def get_country_detail(request,param1,param2):
     objects = CountryModel.objects.all()
     first_data_list = []
     second_data_list = []
+    third_data_list = []
     final_list = []
     try:
         if param1 == 1:
@@ -164,8 +160,9 @@ def get_country_detail(request,param1,param2):
         for obj in objects:
             first_data_list.append(getattr(obj,param1))
             second_data_list.append(getattr(obj,param2))
-        final_list = [first_data_list,second_data_list]
-        print final_list
+            third_data_list.append(getattr(obj,'country'))
+
+        final_list = [first_data_list,second_data_list,third_data_list]
     except Exception as e:
         print "ERROR OCCURED! ",e
 
@@ -178,6 +175,7 @@ def get_continent_detail(request,param1,param2):
     objects = ContinentModel.objects.all()
     first_data_list = []
     second_data_list = []
+    third_data_list = []
     final_list = []
     try:
         if param1 == 1:
@@ -203,12 +201,11 @@ def get_continent_detail(request,param1,param2):
             param2 = 'density'
 
         for obj in objects:
-            print "KERE"
             first_data_list.append(getattr(obj,param1))
             second_data_list.append(getattr(obj,param2))
+            third_data_list.append(getattr(obj,'continent'))
 
-        final_list = [first_data_list,second_data_list]
-        print final_list
+        final_list = [first_data_list,second_data_list,third_data_list]
     except Exception as e:
         print "ERROR OCCURED! ",e
 

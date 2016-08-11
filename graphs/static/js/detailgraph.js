@@ -28,10 +28,12 @@ $(document).ready(function() {
                 console.log(data);
                   var country = [];
                   var fields = [];
+                  var legend_names = []
                   for (var i=0; i < data[0].length;i++)
                   {
                     country.push(data[0][i]);
                     fields.push(data[1][i]);
+                    legend_names.push(data[2][i]);
                   }
                   var graph_type;
                   if (gtype == 1)
@@ -51,6 +53,7 @@ $(document).ready(function() {
                     var trace1 = {
                       labels: country,
                       values: fields,
+                      text : legend_names,
                       type: graph_type
                     };
                     var data = [trace1];
@@ -62,6 +65,7 @@ $(document).ready(function() {
                       x: country,
                       y: fields,
                       mode : "markers",
+                      text : legend_names,
                       type: graph_type
                     };
 
